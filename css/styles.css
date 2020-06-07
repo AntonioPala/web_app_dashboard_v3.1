@@ -1,1 +1,231 @@
-ECHO is on.
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#main-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 'header';
+}
+
+header {
+  color: white;
+  background-color: #6645E1;
+}
+
+.header {
+  display: flex;
+  grid-area: header;
+}
+
+.p {
+  font-family: arial;
+  font-size: 1.5em;
+  font-weight: lighter;
+  margin-left: 20px;
+  margin-right: auto;
+}
+
+.p span {
+  font-size: 1.1em;
+  font-weight: 700;
+}
+
+sup {
+  font-size: .5rem;
+}
+
+#bell {
+  height: 30px;
+  width: 30px;
+  margin-left: auto;
+  margin-top: 27.5px;
+  position: relative;
+  fill: lightgrey;
+  transition: .75s;
+}
+
+#bell:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  fill: #FFFFFF;
+}
+
+.bell-container::after {
+  display: inline-block;
+  content: "";
+  height: 10px;
+  width: 10px;
+  margin: 0px 10px 23px -18px;
+  padding-top: -30px;
+  border-radius: 50%;
+  background-color: lightgreen;
+  opacity: .75;
+}
+
+.bell-container:hover::after {
+  content: "";
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  margin: 0px 10px 23px -18px;
+  padding-top: -30px;
+  border-radius: 50%;
+  background-color: lightgreen;
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.container::after {
+  content: "";
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  margin: 0px 10px 23px -18px;
+  padding-top: -30px;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+#messages {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 100px;
+  z-index: 1000;
+  color: black;
+  height: 0;
+  transition-duration: 1s;
+}
+
+#messages p {
+  display: flex;
+  margin: 0;
+  padding: 15px;
+  background-color: white;
+  border-top: lightgrey solid thin;
+}
+
+.unread-message {
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.unread-message::before {
+  display: inline-block;
+  content: "";
+  height: 10px;
+  width: 10px;
+  margin-top: 3.5px;
+  margin-right: 12px;
+  border-radius: 50%;
+  background-color: lightgreen;
+}
+
+.read-message::before {
+  display: inline-block;
+  content: "";
+  height: 10px;
+  width: 10px;
+  margin-top: 3.5px;
+  margin-right: 12px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+#previous, #undo, #close {
+  padding-left: 3.5px;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#undo, #close {
+  font-size: 1.2em;
+  padding: 0;
+  justify-content: center;
+}
+
+.mark-unread {
+  display: none;
+  font-size: .8em;
+  padding-top: 2px;
+  padding-left: 3px;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.mark-unread:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+.x {
+  font-family: arial;
+  font-weight: 600;
+  padding: 0px 10px;
+  transition: 1s;
+}
+
+.x-auto {
+  margin-left: auto;
+}
+
+.x:hover {
+  cursor: pointer;
+  background-color: red;
+}
+
+#close {
+  border-bottom: lightgrey solid thin;
+}
+
+.divider {
+  font-size: 3.25em;
+  font-weight: 100;
+  color: #6E6CE9;
+  margin: 6px 15px 0px 8px;
+}
+
+.avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-top: 22px;
+}
+
+#name {
+  font-size: 1.2em;
+  margin: 27.5px 15px 0px 12px;
+}
+
+#dashboard-options {
+  display: inline-flex;
+  flex-direction: column;
+  background-color: #3E3175;
+}
+
+#dashboard {
+  display: flex;
+}
+
+.dashboard-icon {
+  height: 35px;
+  width: 35px;
+  margin: 25px 17.5px;
+}
+
+.dashboard-icons:hover::before {
+  display: inline-block;
+  content: "";
+  height: 50px;
+  width: 7px;
+  margin-left: -4px;
+  margin-bottom: 15px;
+  border-radius: 25%;
+  background-color: lightgreen;
+}
