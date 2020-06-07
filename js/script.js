@@ -1,4 +1,5 @@
 const bell = document.getElementById('bell');
+const bellPath = document.getElementById('bell-path');
 const bellContainer = document.getElementsByClassName('bell-container')[0];
 const messageDiv = document.getElementById('messages');
 const messages = messageDiv.getElementsByClassName('message');
@@ -30,6 +31,14 @@ bell.addEventListener('click', () => {
   }
 })
 
+bell.addEventListener('mouseenter', () => {
+  bellPath.style.fill = 'white';
+})
+
+bell.addEventListener('mouseleave', () => {
+  bellPath.style.fill = 'lightgrey';
+})
+
 for (let i = 0; i < messages.length; i++) {
   messages[i].addEventListener('click', (e) => {
     if (e.target.className.indexOf('message') >= 0) {
@@ -40,6 +49,7 @@ for (let i = 0; i < messages.length; i++) {
       }
       if (messages.length === readMessages.length) {
         bellContainer.className = 'container';
+        bell.style.animation = 'none';
       }
       messages[i].firstElementChild.nextElementSibling.className = 'x';
     }
@@ -49,6 +59,7 @@ for (let i = 0; i < messages.length; i++) {
 for (let i = 0; i < x.length; i++) {
   markUnread[i].addEventListener('click', (e) => {
     bellContainer.className = 'bell-container';
+    bell.style.animation = '';
     e.target.parentNode.className = 'message unread-message';
     e.target.style.display = 'none';
     e.target.nextElementSibling.className = 'x x-auto';

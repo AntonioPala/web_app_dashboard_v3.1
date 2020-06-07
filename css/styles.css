@@ -45,14 +45,47 @@ sup {
   margin-left: auto;
   margin-top: 27.5px;
   position: relative;
-  fill: lightgrey;
   transition: .75s;
 }
 
 #bell:hover {
   cursor: pointer;
-  transform: scale(1.2);
-  fill: #FFFFFF;
+  animation: bell-shake .75s forwards;
+  transform: scale(1.1);
+}
+
+@keyframes bell-shake {
+  0% {
+    transform: rotate(0deg) scale(1.1);
+  }
+  12.5% {
+    transform: rotate(15deg) scale(1.1);
+  }
+  25% {
+    transform: rotate(30deg) scale(1.1);
+  }
+  37.5% {
+    transform: rotate(15deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(0deg) scale(1.1);
+  }
+  62.5% {
+    transform: rotate(-15deg) scale(1.1);
+  }
+  75% {
+    transform: rotate(-30deg) scale(1.1);
+  }
+  87.5% {
+    transform: rotate(-15deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(0deg) scale(1.1);
+  }
+}
+
+#bell-path {
+  fill: lightgrey;
 }
 
 .bell-container::after {
