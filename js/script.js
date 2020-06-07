@@ -11,7 +11,6 @@ const undo = document.getElementById('undo');
 const previous = document.getElementById('previous');
 const x = document.getElementsByClassName('x');
 const xAuto = document.getElementsByClassName('x x-auto');
-const close = document.getElementById('close');
 
 let removed = 0;
 
@@ -72,7 +71,9 @@ function spanEventHandler(span, unread) {
     for (let i = 0; i < messages.length; i++) {
       if (messages[i].className === 'message unread-message') {
         messages[i].style.display = '';
-        undo.style.display = '';
+        if (unreadMessages.length !== messages.length) {
+          undo.style.display = '';
+        }
       }
     }
     messageDiv.removeChild(unread);
@@ -90,16 +91,23 @@ for (let i = 0; i < x.length; i++) {
     if (unreadMessages.length > 0 && removed === messages.length) {
       undo.style.display = 'none';
       const unreadNotifications = document.createElement('p');
+      unreadNotifications.className = 'unread-notifications';
       unreadNotifications.innerHTML = `You have
       <span id="previous" class="new-span" style="margin-right: 2px;">${unreadMessages.length}</span>
-      unread notifications.`;
+      unread notifications. <span class="close-message x x-auto">X</span>`;
       if (unreadMessages.length === 1) {
         unreadNotifications.innerHTML = `You have
         <span id="previous" class="new-span" style="margin-right: 2px;">${unreadMessages.length}</span>
-        unread notification.`;
+        unread notification. <span class="close-message x x-auto">X</span>`;
       }
       const newSpan = unreadNotifications.getElementsByClassName('new-span')[0];
+      const closeMessage = unreadNotifications.getElementsByClassName('close-message x x-auto');
       spanEventHandler(newSpan, unreadNotifications);
+      for (let i = 0; i < closeMessage.length; i++) {
+        closeMessage[i].addEventListener('click', () => {
+          messageDiv.style.display = '';
+        });
+      }
       messageDiv.insertBefore(unreadNotifications, messageDiv.lastElementChild);
     }
     if (removed === messages.length && unreadMessages.length === 0) {
@@ -123,8 +131,4 @@ undo.addEventListener('click', () => {
     messages[i].style.display = '';
   }
   undo.style.display = 'none';
-})
-
-close.addEventListener('click', () => {
-  messageDiv.style.display = 'none';
 })

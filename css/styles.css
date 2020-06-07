@@ -140,7 +140,15 @@ sup {
   margin: 0;
   padding: 15px;
   background-color: white;
+}
+
+#first-message, .unread-notifications, #no-notifications {
   border-top: lightgrey solid thin;
+  border-bottom: lightgrey solid thin;
+}
+
+.message, #undo {
+  border-bottom: lightgrey solid thin;
 }
 
 .unread-message {
@@ -170,17 +178,17 @@ sup {
   background-color: white;
 }
 
-#previous, #undo, #close {
+#previous, #undo {
   padding-left: 3.5px;
   color: blue;
   text-decoration: underline;
   cursor: pointer;
 }
 
-#undo, #close {
+#undo {
+  justify-content: center;
   font-size: 1.2em;
   padding: 0;
-  justify-content: center;
 }
 
 .mark-unread {
@@ -211,10 +219,6 @@ sup {
 .x:hover {
   cursor: pointer;
   background-color: red;
-}
-
-#close {
-  border-bottom: lightgrey solid thin;
 }
 
 .divider {
