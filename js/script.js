@@ -10,7 +10,7 @@ const markUnread = document.getElementsByClassName('mark-unread');
 const undo = document.getElementById('undo');
 const previous = document.getElementById('previous');
 const x = document.getElementsByClassName('x');
-const xAuto = document.getElementsByClassName('x x-auto');
+const close = document.getElementById('close');
 
 let removed = 0;
 
@@ -35,7 +35,7 @@ bell.addEventListener('mouseenter', () => {
 })
 
 bell.addEventListener('mouseleave', () => {
-  bellPath.style.fill = 'lightgrey';
+  bellPath.style.fill = '';
 })
 
 for (let i = 0; i < messages.length; i++) {
@@ -131,4 +131,8 @@ undo.addEventListener('click', () => {
     messages[i].style.display = '';
   }
   undo.style.display = 'none';
+})
+
+close.addEventListener('click', () => {
+  messageDiv.style.display = '';
 })

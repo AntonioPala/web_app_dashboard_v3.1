@@ -205,18 +205,18 @@ sup {
   text-decoration: underline;
 }
 
-.x {
+.x, #close {
   font-family: arial;
   font-weight: 600;
   padding: 0px 10px;
   transition: 1s;
 }
 
-.x-auto {
+.x-auto, #close {
   margin-left: auto;
 }
 
-.x:hover {
+.x:hover, #close:hover {
   cursor: pointer;
   background-color: red;
 }
@@ -236,6 +236,7 @@ sup {
 }
 
 #name {
+  font-family: arial;
   font-size: 1.2em;
   margin: 27.5px 15px 0px 12px;
 }
@@ -243,6 +244,7 @@ sup {
 #dashboard-options {
   display: inline-flex;
   flex-direction: column;
+  padding: 15px 5px;
   background-color: #3E3175;
 }
 
@@ -261,8 +263,19 @@ sup {
   content: "";
   height: 50px;
   width: 7px;
-  margin-left: -4px;
+  margin-left: -9px;
   margin-bottom: 15px;
   border-radius: 25%;
   background-color: lightgreen;
+}
+
+.dashboard-heading {
+  font-family: arial;
+  font-size: 2em;
+  color: #717079;
+  padding-left: 32px;
+}
+
+.dashboard-search {
+  margin-left: auto;
 }
