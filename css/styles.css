@@ -279,3 +279,25 @@ sup {
 .dashboard-search {
   margin-left: auto;
 }
+
+.search-bar-wrapper {
+  margin-top: 15px;
+  margin-right: 25px;
+  border: lightgrey solid thin;
+  border-radius: 5%;
+}
+
+.search-bar-wrapper img {
+  vertical-align: middle;
+  padding-right: 5px;
+}
+
+#dashboard-input {
+  padding: 12.5px;
+  width: 425px;
+  border: none;
+}
+
+#dashboard-input:focus {
+  outline: none;
+}

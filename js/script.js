@@ -1,3 +1,5 @@
+const title = document.getElementsByTagName('title')[0];
+const icon = document.getElementById('icon');
 const bell = document.getElementById('bell');
 const bellPath = document.getElementById('bell-path');
 const bellContainer = document.getElementsByClassName('bell-container')[0];
@@ -13,6 +15,8 @@ const x = document.getElementsByClassName('x');
 const close = document.getElementById('close');
 
 let removed = 0;
+
+title.innerHTML = `(${unreadMessages.length}) DataConsultants`;
 
 bell.addEventListener('click', () => {
   if (messageDiv.style.display === '') {
@@ -44,9 +48,12 @@ for (let i = 0; i < messages.length; i++) {
       const message = e.target;
       if (message.className === 'message unread-message') {
         message.className = 'message read-message';
+        title.innerHTML = `(${unreadMessages.length}) DataConsultants`;
         message.firstElementChild.style.display = 'inline-block';
       }
-      if (messages.length === readMessages.length) {
+      if (readMessages.length === messages.length) {
+        title.innerHTML = 'DataConsultants';
+        icon.href = 'icons/icon-bell-read.svg';
         bellContainer.className = 'container';
         bell.style.animation = 'none';
       }
@@ -57,6 +64,8 @@ for (let i = 0; i < messages.length; i++) {
 
 for (let i = 0; i < x.length; i++) {
   markUnread[i].addEventListener('click', (e) => {
+    icon.href = 'icons/icon-bell.svg';
+    title.innerHTML = `(${unreadMessages.length + 1}) DataConsultants`;
     bellContainer.className = 'bell-container';
     bell.style.animation = '';
     e.target.parentNode.className = 'message unread-message';
